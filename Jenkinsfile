@@ -1,6 +1,4 @@
-pipeline {
-  agent any
-  stages {
+stages {
     stage('hello') {
       steps {
         echo 'hello world'
@@ -18,4 +16,4 @@ post {
     archiveArtifacts artifacts: 'hello.txt', fingerprint: true
   }
 }
-
+}
