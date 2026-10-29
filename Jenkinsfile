@@ -13,3 +13,9 @@ pipeline {
     }
   }
 }
+post {
+  succuss {
+    archiveArtifacts artifacts: 'hello.txt', fingerprint: true
+  }
+}
+}
