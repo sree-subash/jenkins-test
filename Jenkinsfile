@@ -1,18 +1,22 @@
-stages {
-    stage('hello') {
-      steps {
-        echo 'hello world'
-          }
+pipeline {
+    agent any 
+
+    stages {
+        stage('hello') {
+            steps {
+                echo 'hello world'
+            }
         }
-    stage('build') {
-      steps {
-        sh 'echo "build completed"'
-      }
+        stage('create artifact') {
+            steps {
+                sh 'echo "hello worldd" > hello.txt'
+                sh 'cat hello.txt'
+            }
+        }
     }
-  }
-}
-post {
-  succuss {
-    archiveArtifacts artifacts: 'hello.txt', fingerprint: true
-  }
+    post {
+        success {
+            archiveArtifacts artifacts: 'hello.txt', fingerprint: true
+        }
+    }
 }
