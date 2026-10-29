@@ -16,4 +16,3 @@ post {
     archiveArtifacts artifacts: 'hello.txt', fingerprint: true
   }
 }
-}
